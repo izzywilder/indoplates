@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndoPlates.id - Professional Design System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 3rem;
+        }
+
+        .header-banner {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #DC143C;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .domain-badge {
+            background: white;
+            color: #1a1a1a;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e0e0e0;
+        }
+
+        .tagline {
+            color: #b0b0b0;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            color: #1a1a1a;
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            background: #DC143C;
+        }
+
+        .description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Color Palette - Professional */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .color-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .color-preview {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .color-info {
+            padding: 1rem;
+            background: white;
+        }
+
+        .color-name {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+
+        .color-value {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-usage {
+            font-size: 0.75rem;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        /* Typography */
+        .type-showcase {
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        .type-sample {
+            margin: 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .type-sample:last-child {
+            border-bottom: none;
+        }
+
+        .type-label {
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Wireframes - Professional Layout */
+        .wireframe-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .wireframe {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .wireframe-header {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .wireframe-content {
+            background: white;
+            padding: 1.5rem;
+        }
+
+        /* Desktop Layout */
+        .desktop-frame {
+            background: white;
+        }
+
+        .gov-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #DC143C;
+        }
+
+        .gov-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .gov-seal {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .gov-nav {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .content-section {
+            padding: 2rem 1.5rem;
+            background: #fafafa;
+        }
+
+        .content-title {
+            font-size: 2rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .plate-display-area {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .plate-visual {
+            background: white;
+            border: 4px solid #1a1a1a;
+            border-radius: 4px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 2rem;
+            color: #1a1a1a;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #1a1a1a;
+            box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.05);
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: #2d2d2d;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1a1a1a;
+            padding: 0.875rem 2rem;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1a1a1a;
+            background: #fafafa;
+        }
+
+        /* Mobile Layout */
+        .mobile-frame {
+            max-width: 375px;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #d0d0d0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .mobile-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            border-bottom: 2px solid #DC143C;
+        }
+
+        .mobile-content {
+            padding: 1.5rem 1rem;
+        }
+
+        .mobile-plate {
+            background: white;
+            border: 3px solid #1a1a1a;
+            border-radius: 4px;
+            padding: 1rem;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin: 1.5rem 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Components */
+        .component-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .component-box {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .component-label {
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        /* Status Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-approved {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+
+        .badge-pending {
+            background: #fff3e0;
+            color: #e65100;
+            border: 1px solid #ffcc80;
+        }
+
+        .badge-processing {
+            background: #e3f2fd;
+            color: #1565c0;
+            border: 1px solid #90caf9;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 3px solid #DC143C;
+        }
+
+        .info-card h3 {
+            color: #1a1a1a;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Process Flow */
+        .process-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .process-step {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #1a1a1a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .flow-arrow {
+            color: #d0d0d0;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .wireframe-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .gov-nav {
+                display: none;
+            }
+
+            .process-flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header-banner">
+            <div class="logo-area">
+                <div>
+                    <div class="logo-text">IndoPlates</div>
+                    <div class="tagline">Personalised Vehicle Plates in Indonesia</div>
+                </div>
+            </div>
+            <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                <span class="domain-badge">indoplates.id</span>
+                <span class="domain-badge">indoplates.com</span>
+            </div>
+        </div>
+
+        <h1>Professional Design System</h1>
+        <p class="description">
+            Clean, minimal design language matching Indonesian government website standards. 
+            Built for trust, clarity, and official government integration.
+        </p>
+
+        <!-- Color System -->
+        <div class="section-title">Color Palette</div>
+        <p class="description">Professional, minimal color scheme with maximum contrast for clarity and accessibility.</p>
+
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-preview" style="background: #1a1a1a; color: white;">
+                    Primary
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Charcoal Black</div>
+                    <div class="color-value">#1a1a1a</div>
+                    <div class="color-usage">Headers, primary text, buttons, navigation</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-preview" style="background: #ffffff; color: #1a1a1a; border: 1px solid #e0e0e0;">
+                    Base
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Pure White</div>
+                    <div class="color-value">#ffffff</div>
+                    <div class="color-usage">Backgrounds, cards, content areas</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-preview" style="background: #f5f5f5; color: #1a1a1a;">
+                    Surface
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Light Grey</div>
+                    <div class="color-value">#f5f5f5</div>
+                    <div class="color-usage">Page backgrounds, subtle sections</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-preview" style="background: #666666; color: white;">
+                    Secondary
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Medium Grey</div>
+                    <div class="color-value">#666666</div>
+                    <div class="color-usage">Secondary text, descriptions</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-preview" style="background: #e0e0e0; color: #1a1a1a;">
+                    Borders
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Border Grey</div>
+                    <div class="color-value">#e0e0e0</div>
+                    <div class="color-usage">Borders, dividers, outlines</div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-preview" style="background: #DC143C; color: white;">
+                    Accent
+                </div>
+                <div class="color-info">
+                    <div class="color-name">Indonesian Red</div>
+                    <div class="color-value">#DC143C</div>
+                    <div class="color-usage">Minimal accents only - left borders, small highlights</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="section-title">Typography System</div>
+
+        <div class="type-showcase">
+            <div class="type-sample">
+                <div class="type-label">Display / H1 - 2.5rem / 700</div>
+                <div style="font-size: 2.5rem; font-weight: 700; color: #1a1a1a;">
+                    Official Government Service Platform
+                </div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Heading / H2 - 1.8rem / 600</div>
+                <div style="font-size: 1.8rem; font-weight: 600; color: #1a1a1a;">
+                    Personalised Vehicle Registration
+                </div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Subheading / H3 - 1.3rem / 600</div>
+                <div style="font-size: 1.3rem; font-weight: 600; color: #1a1a1a;">
+                    Application Process Steps
+                </div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Body Text - 1rem / 400</div>
+                <div style="font-size: 1rem; font-weight: 400; color: #333; line-height: 1.6;">
+                    Clear, professional body text for all content. Easy to read with proper spacing and contrast. 
+                    Optimized for accessibility and government standards.
+                </div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Small Text - 0.85rem / 400</div>
+                <div style="font-size: 0.85rem; font-weight: 400; color: #666;">
+                    Secondary information, captions, and supporting details
+                </div>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Plate Number - Courier New / Bold</div>
+                <div style="font-family: 'Courier New', monospace; font-size: 1.5rem; font-weight: bold; color: #1a1a1a;">
+                    B 1234 XYZ
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Wireframe -->
+        <div class="section-title">Desktop Wireframe - Homepage</div>
+
+        <div class="wireframe-container">
+            <div class="wireframe">
+                <div class="wireframe-header">🖥️ Web - Desktop Layout (1920x1080)</div>
+                <div class="wireframe-content">
+                    <div class="desktop-frame">
+                        <div class="gov-header">
+                            <div class="gov-logo">
+                                <div class="gov-seal">🇮🇩</div>
+                                <span>IndoPlates.id</span>
+                            </div>
+                            <div class="gov-nav">
+                                <span>Services</span>
+                                <span>Track Application</span>
+                                <span>Help</span>
+                                <span>Login</span>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <div class="content-title">Vehicle Plate Registration</div>
+                            <div class="content-subtitle">Official SAMSAT-integrated service for personalised vehicle plates</div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div class="plate-display-area">
+                                    <h3 style="color: #666; font-size: 0.9rem; margin-bottom: 1rem; text-align: center;">LIVE PREVIEW</h3>
+                                    <div class="plate-visual">B 1234 XYZ</div>
+                                    <p style="text-align: center; color: #999; font-size: 0.8rem; margin-top: 0.75rem;">Indonesian Standard Format</p>
+                                </div>
+
+                                <div class="form-section">
+                                    <div class="form-group">
+                                        <label class="form-label">Plate Number</label>
+                                        <input class="form-input" placeholder="Enter plate number" value="B 1234 XYZ">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">Vehicle Type</label>
+                                        <select class="form-input">
+                                            <option>Car (Mobil)</option>
+                                            <option>Motorcycle (Motor)</option>
+                                            <option>Truck (Truk)</option>
+                                        </select>
+                                    </div>
+
+                                    <button class="btn-primary">Submit Application</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Wireframe -->
+            <div class="wireframe">
+                <div class="wireframe-header">📱 Mobile - App View (375x812)</div>
+                <div class="wireframe-content">
+                    <div class="mobile-frame">
+                        <div class="mobile-header">IndoPlates.id</div>
+                        <div class="mobile-content">
+                            <h2 style="font-size: 1.5rem; color: #1a1a1a; margin-bottom: 0.5rem;">Plate Registration</h2>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;">SAMSAT-integrated service</p>
+
+                            <div class="mobile-plate">B 1234 XYZ</div>
+
+                            <div class="form-group">
+                                <label class="form-label">Plate Number</label>
+                                <input class="form-input" placeholder="Enter number">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Vehicle Type</label>
+                                <select class="form-input">
+                                    <option>Car (Mobil)</option>
+                                    <option>Motorcycle (Motor)</option>
+                                </select>
+                            </div>
+
+                            <button class="btn-primary">Submit Application</button>
+                            <button class="btn-secondary" style="width: 100%; margin-top: 0.5rem;">Track Status</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Flow -->
+        <div class="section-title">Application Process</div>
+
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-title">Design</div>
+                <div class="step-desc">Choose plate</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-title">Documents</div>
+                <div class="step-desc">Upload files</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-title">Payment</div>
+                <div class="step-desc">Secure pay</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-title">SAMSAT</div>
+                <div class="step-desc">Approval</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-title">Delivery</div>
+                <div class="step-desc">Receive plate</div>
+            </div>
+        </div>
+
+        <!-- UI Components -->
+        <div class="section-title">UI Components</div>
+
+        <div class="component-showcase">
+            <div class="component-box">
+                <div class="component-label">Primary Button</div>
+                <button class="btn-primary">Submit Application</button>
+            </div>
+
+            <div class="component-box">
+                <div class="component-label">Secondary Button</div>
+                <button class="btn-secondary">Track Status</button>
+            </div>
+
+            <div class="component-box">
+                <div class="component-label">Text Input</div>
+                <input class="form-input" placeholder="Enter information">
+            </div>
+
+            <div class="component-box">
+                <div class="component-label">Status Badges</div>
+                <div>
+                    <span class="badge badge-approved">Approved</span>
+                    <span class="badge badge-pending">Pending</span>
+                    <span class="badge badge-processing">Processing</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="section-title">Design Principles</div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Government Standard</h3>
+                <p>Clean, professional design matching official Indonesian government website standards and accessibility guidelines.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Maximum Clarity</h3>
+                <p>High contrast black and white with grey tones ensures readability and professional appearance for all users.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Official Trust</h3>
+                <p>Minimal design with strong hierarchy builds trust through simplicity and official government aesthetic.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Accessible Design</h3>
+                <p>WCAG 2.1 AA compliant with proper contrast ratios, clear typography, and structured information architecture.</p>
+            </div>
+        </div>
+
+        <!-- Domains -->
+        <div style="margin-top: 3rem; padding: 2rem; background: #fafafa; border-radius: 8px; border: 1px solid #e0e0e0; text-align: center;">
+            <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Official Domains</h3>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <div style="background: white; padding: 1rem 2rem; border-radius: 4px; border: 1px solid #e0e0e0; font-weight: 600;">
+                    indoplates.id
+                </div>
+                <div style="background: white; padding: 1rem 2rem; border-radius: 4px; border: 1px solid #e0e0e0; font-weight: 600;">
+                    indoplates.com
+                </div>
+            </div>
+            <p style="color: #666; margin-top: 1rem; font-size: 0.9rem;">Primary Indonesian domain (.id) for local trust and credibility</p>
+        </div>
+
+    </div>
+</body>
+</html>
